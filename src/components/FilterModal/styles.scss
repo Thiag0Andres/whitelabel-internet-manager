@@ -1,0 +1,35 @@
+.modal-filter {
+  .container-checks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 1.25rem;
+  }
+
+  .container-select {
+    .form-control {
+      margin-bottom: 0;
+    }
+  }
+
+  .container-body-buttons-modal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .primary-button {
+      width: 100%;
+
+      .icon-button {
+        position: absolute;
+        left: 0.438rem !important;
+
+        svg {
+          width: 1.313rem;
+          height: 1.313rem;
+        }
+      }
+    }
+  }
+}

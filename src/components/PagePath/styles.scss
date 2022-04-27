@@ -1,0 +1,23 @@
+@import '../../mixin.scss';
+
+.container-page-path {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+
+  .name-path {
+    text-align: left !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 500 !important;
+    font-size: 1.563rem !important;
+    line-height: 2.375rem !important;
+    letter-spacing: 0px !important;
+    color: #3f7d20 !important;
+  }
+  .container-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

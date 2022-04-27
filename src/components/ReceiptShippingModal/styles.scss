@@ -1,0 +1,55 @@
+@import '../../mixin';
+
+.modal-shipping {
+  .modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      width: 2.188rem;
+      height: 2.188rem;
+    }
+  }
+  .modal-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title-option {
+      margin-bottom: 0;
+    }
+  }
+  .container-body-buttons-modal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .primary-button {
+      width: 100%;
+
+      .icon-button {
+        position: absolute;
+        left: 0.438rem !important;
+
+        svg {
+          width: 1.313rem;
+          height: 1.313rem;
+        }
+      }
+    }
+
+    .MuiButton-root.Mui-disabled {
+      color: #ccd1e6 !important;
+      border: 2px solid #ccd1e6;
+      background-color: $white;
+
+      g {
+        fill: #ccd1e6;
+      }
+    }
+  }
+}

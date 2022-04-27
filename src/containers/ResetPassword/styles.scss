@@ -1,0 +1,68 @@
+@import '../../mixin.scss';
+
+.container-redefine {
+  height: 100%;
+  background: #fff;
+
+  .row {
+    height: 100% !important;
+
+    .container-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background-color: #fff;
+
+      form {
+        width: 18.75rem;
+
+        .input-container {
+          position: relative;
+
+          .icon-input {
+            position: absolute;
+            padding: 0.363rem 0.463rem !important;
+
+            svg {
+              width: 1.063rem;
+              height: 1.063rem;
+            }
+          }
+        }
+
+        .form-control {
+          padding-left: 2.25rem !important;
+        }
+
+        .redefine-password {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: -0.313rem;
+          margin-bottom: 1.25rem;
+
+          .btn-empty {
+            padding-left: 0px;
+          }
+        }
+
+        .primary-button {
+          width: 100%;
+          position: relative;
+          margin-bottom: 0.625rem;
+
+          .icon-button {
+            position: absolute;
+            left: 0.438rem;
+
+            svg {
+              width: 1.313rem;
+              height: 1.313rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

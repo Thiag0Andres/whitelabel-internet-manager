@@ -1,0 +1,13 @@
+@import '../../mixin.scss';
+
+.link-button {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  font-size: 0.688rem;
+  line-height: 1.063rem;
+  color: $primary;
+  background: none;
+  border: 0;
+  text-decoration: underline;
+}

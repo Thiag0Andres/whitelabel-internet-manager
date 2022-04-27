@@ -1,0 +1,34 @@
+@import '../../mixin.scss';
+
+.container-register-person {
+  flex: 1;
+  padding: 1.25rem;
+
+  .container-form {
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      @media (max-width: 800px) {
+        flex-direction: row;
+      }
+
+      .icon-button {
+        position: absolute;
+        left: 1rem !important;
+        z-index: 3;
+
+        svg {
+          width: 1.125rem;
+          height: 1.125rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+@import '../mixin.scss';
+
+/**
+ * Main wrapper
+ */
+.select-search {
+  // width: 300px;
+  position: relative;
+  font: normal normal normal 0.813rem/0.938rem 'Poppins', sans-serif !important;
+  box-sizing: border-box;
+
+  &.margin {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.select-search.dark {
+  .select-search__input {
+    background: $gray_strokes;
+  }
+}
+
+.select-search *,
+.select-search *::after,
+.select-search *::before {
+  box-sizing: inherit;
+}
+
+/**
+* Value wrapper
+*/
+.select-search__value {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 11.25rem;
+}
+
+.select-search__value::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 0.609rem;
+  width: 0.656rem;
+  height: 0.656rem;
+  margin-top: -0.188rem;
+}
+
+/**
+* Input
+*/
+.select-search__input {
+  width: 11.25rem;
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.875rem;
+  border: 1px solid transparent;
+  border-radius: 0.313rem;
+  outline: none;
+  background: #f9faff;
+  color: #3f7d20;
+  font: normal normal normal 0.813rem/0.938rem 'Poppins', sans-serif !important;
+  text-align: left;
+  text-overflow: ellipsis;
+  line-height: 2.25rem;
+  -webkit-appearance: none;
+  transition: ease-in 0.2s;
+}
+
+.select-search__input::-webkit-search-decoration,
+.select-search__input::-webkit-search-cancel-button,
+.select-search__input::-webkit-search-results-button,
+.select-search__input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.select-search__input:not([readonly]):focus {
+  cursor: initial;
+}
+
+/**
+* Options wrapper
+*/
+.select-search__select {
+  width: 11.25rem;
+  background: #f9faff;
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+}
+
+/**
+* Options
+*/
+.select-search__options {
+  list-style: none;
+}
+
+/**
+* Option row
+*/
+.select-search__row:not(:first-child) {
+  border-top: 1px solid #eee;
+}
+
+/**
+* Option
+*/
+.select-search__option {
+  display: block;
+  min-height: 2.5rem;
+  width: 9.25rem;
+  padding: 0;
+  background: #f9faff;
+  border: none;
+  outline: none;
+  font: normal normal normal 0.813rem/0.938rem 'Poppins', sans-serif !important;
+  text-align: left;
+  cursor: pointer;
+  word-wrap: break-word;
+  transition: ease-in 0.2s;
+}
+
+.select-search--multiple .select-search__option {
+  height: 48px;
+}
+
+.select-search__option.is-selected {
+  background: #f9faff;
+  opacity: 0.9;
+}
+
+.select-search__option.is-highlighted,
+.select-search__option:not(.is-selected):hover {
+  background: #f9faff;
+}
+
+.select-search__option.is-highlighted.is-selected,
+.select-search__option.is-selected:hover {
+  background: #f9faff;
+  opacity: 0.9;
+}
+
+/**
+* Group
+*/
+.select-search__group-header {
+  font: normal normal normal 0.813rem/0.938rem 'Poppins', sans-serif !important;
+  text-transform: uppercase;
+  background: #eee;
+  padding: 0.5rem 1rem;
+}
+
+/**
+* States
+*/
+.select-search.is-disabled {
+  opacity: 0.5;
+}
+
+.select-search.is-loading .select-search__value::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E");
+  background-size: 0.6875rem;
+}
+
+.select-search:not(.is-disabled) .select-search__input {
+  cursor: pointer;
+}
+
+/**
+* Modifiers
+*/
+.select-search--multiple {
+  border-radius: 0.1875rem;
+  overflow: hidden;
+}
+
+/* Select Icon */
+.select-search:not(.is-loading):not(.select-search--multiple)
+  .select-search__value::after {
+  transform: rotate(45deg);
+  border-right: 0.125rem solid #ccd1e6;
+  border-bottom: 0.125rem solid #ccd1e6;
+  pointer-events: none;
+}
+
+.select-search--multiple .select-search__input {
+  cursor: initial;
+}
+
+.select-search--multiple .select-search__input {
+  border-radius: 0.1875rem 0.1875rem 0 0;
+}
+
+.select-search--multiple:not(.select-search--search) .select-search__input {
+  cursor: default;
+}
+
+.select-search:not(.select-search--multiple) .select-search__input:hover {
+  //box-shadow: 0 0 0 0.2rem rgba(90, 92, 94, 0.25);
+}
+
+.select-search:not(.select-search--multiple) .select-search__select {
+  position: absolute;
+  z-index: 2;
+  top: 2.75rem;
+  right: 0;
+  left: 0;
+  border-radius: 0.1875rem;
+  overflow: auto;
+  max-height: 12.5rem;
+}
+
+.select-search--multiple .select-search__select {
+  position: relative;
+  overflow: auto;
+  // max-height: 260px;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 0.1875rem 0.1875rem;
+}

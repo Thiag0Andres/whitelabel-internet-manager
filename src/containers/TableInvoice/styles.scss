@@ -1,0 +1,26 @@
+.container-footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 1.25rem;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  .primary-button {
+    width: 12.5rem;
+    position: relative;
+
+    .icon-button {
+      position: absolute;
+      left: 0.438rem !important;
+
+      svg {
+        width: 1.313rem;
+        height: 1.313rem;
+      }
+    }
+  }
+}

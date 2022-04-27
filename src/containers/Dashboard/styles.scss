@@ -1,0 +1,96 @@
+@import '../../mixin.scss';
+
+.container-dashboard {
+  flex: 1;
+  padding: 1.25rem;
+
+  .active {
+    color: #35af62 !important;
+  }
+  .blocked {
+    color: #db324f !important;
+  }
+  .defaulter {
+    color: #dbae32 !important;
+  }
+
+  .container-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    &.isPadding {
+      padding-right: 0;
+      padding-left: 0.625rem;
+    }
+
+    @media (max-width: 991px) {
+      &.isPadding {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    .card-content {
+      margin-bottom: 0.625rem;
+    }
+
+    .container-body {
+      margin-bottom: 1.25rem;
+    }
+
+    .container-body-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      margin-top: 1.438rem;
+
+      .primary-button {
+        width: 12.5rem;
+        position: relative;
+
+        .icon-button {
+          position: absolute;
+          left: 0.438rem !important;
+
+          svg {
+            width: 1.313rem;
+            height: 1.313rem;
+          }
+        }
+      }
+    }
+  }
+
+  .content-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .container-select-dashboard {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .form-control-dashboard {
+        text-align: left;
+        font: normal normal 400 14px/18px Poppins;
+        margin-bottom: 0;
+        letter-spacing: 0px;
+        color: #ccd1e6;
+        border-color: transparent;
+        background-color: transparent;
+        z-index: 2;
+      }
+
+      svg {
+        position: absolute;
+        right: 0;
+        margin: -5px;
+        z-index: 1;
+      }
+    }
+  }
+}
