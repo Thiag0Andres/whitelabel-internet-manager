@@ -172,7 +172,7 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
               onNavigationClick(`/home/perfil/view/${user.providerId}`);
             }}
           >
-            <img src="" alt="Logo" className="logo" />
+            <p className="logo">Logo</p>
           </button>
         ) : (
           <button
@@ -182,7 +182,7 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
               onNavigationClick(`/home/perfil/view/${user.providerId}`);
             }}
           >
-            <img src="" alt="L" className="logo-icon" />
+            <p className="logo-icon">L</p>
           </button>
         )}
       </div>

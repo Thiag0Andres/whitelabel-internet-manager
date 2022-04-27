@@ -259,7 +259,7 @@ const InfoClient: React.FC = () => {
               }}
             >
               <div className="icon-button">
-                <Icon icon={arrowLeft} color="#59971f" />
+                <Icon icon={arrowLeft} color="#011A2C" />
               </div>
               Voltar
             </Button>
@@ -272,7 +272,7 @@ const InfoClient: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={pencil} color="#59971f" />
+                  <Icon icon={pencil} color="#011A2C" />
                 </div>
                 Editar cliente
               </Button>
@@ -284,7 +284,7 @@ const InfoClient: React.FC = () => {
                   }}
                 >
                   <div className="icon-button">
-                    <Icon icon={receipt} color="#59971f" />
+                    <Icon icon={receipt} color="#011A2C" />
                   </div>
                   Gerar NF-es
                 </Button>

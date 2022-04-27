@@ -183,7 +183,7 @@ const TableBillsToReceive: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={FilterIcon} color="#59971f" />
+                  <Icon icon={FilterIcon} color="#011A2C" />
                 </div>
                 Filtrar
               </Button>
@@ -195,7 +195,7 @@ const TableBillsToReceive: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={upcScan} color="#59971f" />
+                  <Icon icon={upcScan} color="#011A2C" />
                 </div>
                 Gerar boletos
               </Button>
@@ -206,7 +206,7 @@ const TableBillsToReceive: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={cashStack} color="#59971f" />
+                  <Icon icon={cashStack} color="#011A2C" />
                 </div>
                 Incluir nova
               </Button>

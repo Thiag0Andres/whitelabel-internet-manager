@@ -42,6 +42,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     'no-use-before-define': 'off',
     'linebreak-style': 0,
+    'import/no-unresolved': 'off',
   },
   settings: {
     'import/parsers': {

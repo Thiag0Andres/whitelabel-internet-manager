@@ -179,7 +179,7 @@ const Login: React.FC = () => {
     <Container fluid className="container-login">
       <Row>
         <Col className="container-form" xl="12" lg="12" md="12" xs="12" sm="12">
-          <img src="" alt="Logo" className="logo" />
+          <p className="logo">Logo</p>
           {formSignIn}
         </Col>
       </Row>

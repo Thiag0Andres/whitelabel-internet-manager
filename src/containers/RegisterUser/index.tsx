@@ -55,11 +55,11 @@ const RegisterUser: React.FC = () => {
         <div className="card-header">
           {option === 'Pessoa Jurídica' ? (
             <div className="icon-button">
-              <Icon icon={BuildingIcon} color="#3F7D20" />
+              <Icon icon={BuildingIcon} color="#000b13" />
             </div>
           ) : (
             <div className="icon-button">
-              <Icon icon={PersonIcon} color="#3F7D20" />
+              <Icon icon={PersonIcon} color="#000b13" />
             </div>
           )}
 

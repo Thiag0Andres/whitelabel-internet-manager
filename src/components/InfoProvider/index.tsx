@@ -513,7 +513,7 @@ const InfoProvider: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={arrowLeft} color="#59971f" />
+                  <Icon icon={arrowLeft} color="#011A2C" />
                 </div>
                 Voltar
               </Button>
@@ -526,7 +526,7 @@ const InfoProvider: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={pencil} color="#59971f" />
+                  <Icon icon={pencil} color="#011A2C" />
                 </div>
                 Editar dados
               </Button>

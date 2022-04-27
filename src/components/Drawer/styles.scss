@@ -7,15 +7,17 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    background: #42633b;
+    background: #15616d;
     border-radius: 6px;
     border-color: transparent;
     box-shadow: transparent;
 
     .logo-icon {
-      object-fit: cover;
-      width: 1.875rem;
-      height: 1.078rem;
+      font-weight: 500 !important;
+      font-size: 1.125rem;
+      line-height: 0.938rem !important;
+      letter-spacing: 0px !important;
+      color: #fff;
     }
   }
 
@@ -26,9 +28,11 @@
   }
 
   .logo {
-    object-fit: cover;
-    width: 6rem;
-    height: 1.563rem;
+    font-weight: 500 !important;
+    font-size: 1.125rem;
+    line-height: 0.938rem !important;
+    letter-spacing: 0px !important;
+    color: #fff;
   }
 
   .MuiListItem-root {
@@ -46,7 +50,7 @@
   }
 
   .MuiDrawer-paper {
-    background-color: #59971f;
+    background-color: #011a2c;
     overflow-x: hidden;
   }
 
@@ -55,7 +59,7 @@
   }
 
   .MuiListItem-root.Mui-selected {
-    border-left: 4px solid #42633b;
+    border-left: 4px solid #15616d;
   }
 
   p {

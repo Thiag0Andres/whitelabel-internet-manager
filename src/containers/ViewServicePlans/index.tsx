@@ -182,7 +182,7 @@ const ViewServicePlans: React.FC = () => {
               }}
             >
               <div className="icon-button">
-                <Icon icon={arrowLeft} color="#59971f" />
+                <Icon icon={arrowLeft} color="#011A2C" />
               </div>
               Voltar
             </Button>
@@ -194,7 +194,7 @@ const ViewServicePlans: React.FC = () => {
               }}
             >
               <div className="icon-button">
-                <Icon icon={pencil} color="#59971f" />
+                <Icon icon={pencil} color="#011A2C" />
               </div>
               Editar Plano
             </Button>

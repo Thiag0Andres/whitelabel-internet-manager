@@ -16,12 +16,16 @@
       background-color: #fff;
 
       .logo {
-        object-fit: cover;
         width: 12.5rem;
         height: 4.188rem;
+        font-weight: 500 !important;
+        font-size: 1.563rem !important;
+        line-height: 2.375rem !important;
+        letter-spacing: 0px !important;
         margin-bottom: 1.25rem;
         display: flex;
         justify-content: center;
+        color: #000b13 !important;
       }
 
       form {

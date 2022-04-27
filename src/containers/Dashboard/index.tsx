@@ -292,12 +292,12 @@ const Dashboard: React.FC = () => {
     datasets: [
       {
         label: 'Período atual',
-        backgroundColor: '#59971f',
+        backgroundColor: '#011A2C',
         data: monthlyBillingDataArr,
       },
       {
         label: 'Período anterior',
-        backgroundColor: '#9dc565',
+        backgroundColor: '#15616D',
         data: annualBillingDataArr,
       },
     ],

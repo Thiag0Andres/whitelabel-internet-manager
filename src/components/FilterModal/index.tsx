@@ -224,7 +224,7 @@ const FilterModal: React.FC<Props> = ({
                 <Icon
                   style={{ marginRight: '0.313rem' }}
                   icon={check2}
-                  color="#3F7D20"
+                  color="#000b13"
                 />
                 {type === 'user' ? 'Status do cliente' : 'Status'}
               </h3>
@@ -232,7 +232,7 @@ const FilterModal: React.FC<Props> = ({
                 <Icon
                   style={{ marginRight: '0.313rem' }}
                   icon={PersonIcon}
-                  color="#3F7D20"
+                  color="#000b13"
                 />
                 Tipo de cliente
               </h3>
@@ -313,7 +313,7 @@ const FilterModal: React.FC<Props> = ({
                     <Icon
                       style={{ marginRight: '0.313rem' }}
                       icon={BoxIcon}
-                      color="#3F7D20"
+                      color="#000b13"
                     />
                     Plano de serviço
                   </h3>
@@ -341,7 +341,7 @@ const FilterModal: React.FC<Props> = ({
                     <Icon
                       style={{ marginRight: '0.313rem' }}
                       icon={ClockIcon}
-                      color="#3F7D20"
+                      color="#000b13"
                     />
                     Período
                   </h3>
@@ -388,7 +388,7 @@ const FilterModal: React.FC<Props> = ({
             onClick={() => handleClose()}
           >
             <div className="icon-button">
-              <Icon icon={XIcon} color="#59971f" />
+              <Icon icon={XIcon} color="#011A2C" />
             </div>
             Cancelar
           </Button>

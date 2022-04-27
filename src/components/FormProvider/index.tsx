@@ -129,7 +129,7 @@ const RegisterFormProvider: React.FC = () => {
               complement: form.address.complement,
             },
             bank: '-',
-            theme1: '#59971f',
+            theme1: '#011A2C',
             status: 'compliant',
           },
           { headers: { Authorization: token } },

@@ -38,7 +38,7 @@ const ReceiptShippingModal: React.FC<Props> = ({
       centered
     >
       <Modal.Header>
-        <Icon icon={Clock} color="#59971f" />
+        <Icon icon={Clock} color="#011A2C" />
       </Modal.Header>
       <Modal.Body>
         <h2 className="subTitle marginBottom">Gerando arquivo de remessa</h2>
@@ -55,7 +55,7 @@ const ReceiptShippingModal: React.FC<Props> = ({
             onClick={() => handleClose()}
           >
             <div className="icon-button">
-              <Icon icon={XIcon} color="#59971f" />
+              <Icon icon={XIcon} color="#011A2C" />
             </div>
             Cancelar
           </Button>

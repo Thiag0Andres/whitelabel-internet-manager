@@ -161,7 +161,7 @@ const RegisterFormBillsToReceive: React.FC = () => {
             }}
           >
             <div className="icon-button">
-              <Icon icon={arrowLeft} color="#59971f" />
+              <Icon icon={arrowLeft} color="#011A2C" />
             </div>
             Voltar
           </Button>

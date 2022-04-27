@@ -178,7 +178,7 @@ const ReceiptModal: React.FC<Props> = ({
               }}
             >
               <div className="icon-button">
-                <Icon icon={XIcon} color="#59971f" />
+                <Icon icon={XIcon} color="#011A2C" />
               </div>
               Cancelar
             </Button>

@@ -164,7 +164,7 @@ const TableServicePlans: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={BoxSeamIcon} color="#59971f" />
+                  <Icon icon={BoxSeamIcon} color="#011A2C" />
                 </div>
                 Novo plano
               </Button>

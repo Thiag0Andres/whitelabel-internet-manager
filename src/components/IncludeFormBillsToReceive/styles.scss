@@ -52,7 +52,7 @@
         border-radius: 0.313rem;
         outline: none;
         background: $white;
-        color: #3f7d20;
+        color: #000b13;
         font: normal normal normal 0.813rem/1.25rem 'Poppins', sans-serif !important;
         text-align: left;
         text-overflow: ellipsis;
@@ -61,7 +61,7 @@
         transition: ease-in 0.2s;
 
         &:focus {
-          color: #3f7d20;
+          color: #000b13;
           border-color: #e4e7f3;
           box-shadow: none !important;
         }

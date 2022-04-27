@@ -118,7 +118,7 @@ const Table: React.FC<TableProps> = ({
 
   const colors = {
     standard_color: '#CCD1E6',
-    hover_eyeIcon: '#59971f',
+    hover_eyeIcon: '#011A2C',
     hover_trashIcon: '#db324f',
   };
 

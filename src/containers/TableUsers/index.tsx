@@ -204,7 +204,7 @@ const TableUsers: React.FC = () => {
                 }}
               >
                 <div className="icon-button">
-                  <Icon icon={FilterIcon} color="#59971f" />
+                  <Icon icon={FilterIcon} color="#011A2C" />
                 </div>
                 Filtrar
               </Button>

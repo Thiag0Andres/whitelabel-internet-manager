@@ -43,7 +43,7 @@ const AcceptModal: React.FC<Props> = ({
             onClick={() => handleClose()}
           >
             <div className="icon-button">
-              <Icon icon={XIcon} color="#59971f" />
+              <Icon icon={XIcon} color="#011A2C" />
             </div>
             Cancelar
           </Button>
