@@ -166,6 +166,7 @@ const ResetPassword: React.FC = () => {
 
       <div className="input-container redefine-password">
         <LinkButton
+          id="button-redefine-password"
           title="Voltar para tela de login"
           onClick={() => onNavigationClick('/login')}
         />

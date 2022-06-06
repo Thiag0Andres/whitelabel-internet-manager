@@ -113,6 +113,7 @@ const Login: React.FC = () => {
             <Icon icon={personIcon} color="#CCD1E6" />
           </div>
           <Form.Control
+            id="email"
             placeholder="E-mail"
             value={values.email || ''}
             onBlur={() => setFieldTouched('email')}
@@ -133,6 +134,7 @@ const Login: React.FC = () => {
             <Icon icon={keyIcon} color="#CCD1E6" />
           </div>
           <Form.Control
+            id="password"
             placeholder="Senha"
             type="password"
             value={values.password || ''}
@@ -150,12 +152,13 @@ const Login: React.FC = () => {
 
       <div className="input-container forget-password">
         <LinkButton
+          id="button-forgot-password"
           title="Esqueceu a senha?"
           onClick={() => onNavigationClick('/forgot-password')}
         />
       </div>
 
-      <Button type="submit" className="primary-button">
+      <Button id="button-login" type="submit" className="primary-button">
         {!loading ? (
           <>
             <div className="icon-button">
