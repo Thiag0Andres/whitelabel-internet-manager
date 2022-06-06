@@ -46,7 +46,7 @@ describe('Login', () => {
     cy.url().should('include', 'http://localhost:3000/login');
   });
 
-  it('Action of going to forgot password screen', () => {
+  it('Should go to forgot password screen', () => {
     cy.wait(3000);
     cy.get('#button-forgot-password').click();
 

@@ -89,6 +89,7 @@ const ForgotPassword: React.FC = () => {
             <Icon icon={personIcon} color="#CCD1E6" />
           </div>
           <Form.Control
+            id="email"
             placeholder="E-mail"
             value={values.email || ''}
             onBlur={() => setFieldTouched('email')}
@@ -103,7 +104,11 @@ const ForgotPassword: React.FC = () => {
         </div>
       </Form.Group>
 
-      <Button type="submit" className="primary-button">
+      <Button
+        id="button-send-forgot-password"
+        type="submit"
+        className="primary-button"
+      >
         {!loading ? (
           <>
             <div className="icon-button">
@@ -121,6 +126,7 @@ const ForgotPassword: React.FC = () => {
         )}
       </Button>
       <Button
+        id="button-back-to-login"
         className="primary-button outline-primary"
         onClick={() => {
           onNavigationClick('/login');

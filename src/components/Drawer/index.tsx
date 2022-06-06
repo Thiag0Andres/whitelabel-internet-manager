@@ -191,6 +191,7 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
         <List>
           {LIST_MENU_PROVIDER.map((item, index) => (
             <ListItem
+              id={item.name.toLocaleLowerCase().replace(/ /g, '-')}
               button
               key={item.name}
               onClick={() => {
