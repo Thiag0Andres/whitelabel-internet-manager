@@ -63,7 +63,7 @@
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "test-cypress": "cypress run --browser chrome",
-    "run-cypress": "cypress open"
+    "run-cypress": "cypress open --config-file=cypress.config.ts"
   },
   "eslintConfig": {
     "extends": "react-app"
