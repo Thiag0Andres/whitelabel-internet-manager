@@ -3,16 +3,12 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   Login,
   ForgotPassword,
-  ResetPassword,
   Home,
   ViewUser,
-  ViewPerfil,
   ViewServicePlans,
   RegisterServicePlans,
   ViewInvoice,
   ViewBillsToReceive,
-  CreateBillsToReceive,
-  IncludeBillsToReceive,
   ViewAuditLog,
 } from '..';
 import { PrivateRoute } from '../_PrivateRoute';
@@ -22,14 +18,11 @@ const Routes: React.FC = () => {
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route exact path="/forgot-password" component={ForgotPassword} />
-      <Route exact path="/reset-password" component={ResetPassword} />
 
       <PrivateRoute exact path="/home/:option" component={Home} />
 
       {/* Users */}
       <PrivateRoute exact path="/home/clients/view/:id" component={ViewUser} />
-
-      <PrivateRoute exact path="/home/perfil/view/:id" component={ViewPerfil} />
 
       {/* Services Plans */}
       <PrivateRoute
@@ -55,16 +48,6 @@ const Routes: React.FC = () => {
         exact
         path="/home/bills-to-receive/view/:id"
         component={ViewBillsToReceive}
-      />
-      <PrivateRoute
-        exact
-        path="/home/bills-to-receive/create"
-        component={CreateBillsToReceive}
-      />
-      <PrivateRoute
-        exact
-        path="/home/bills-to-receive/include"
-        component={IncludeBillsToReceive}
       />
 
       {/* Audit Log */}

@@ -33,8 +33,8 @@ interface IActions {
   onClick: (param: string) => void;
 }
 interface TableProps {
+  id: string;
   onViewClick?: (id: number) => void;
-  onChange?: (e: any) => void;
   columns: Array<any>;
   data: Array<any>;
   actions?: IActions[];
@@ -81,13 +81,12 @@ export const renderStatus = (status: string) => {
 };
 
 const Table: React.FC<TableProps> = ({
+  id,
   columns,
   data,
   onViewClick,
   actions,
-  onChange,
   valueInputFilter,
-  viewAction,
 }: TableProps) => {
   const {
     getTableProps,
@@ -156,7 +155,7 @@ const Table: React.FC<TableProps> = ({
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody id={id} {...getTableBodyProps()}>
           {page.map((row: any) => {
             prepareRow(row);
             return (
@@ -176,18 +175,6 @@ const Table: React.FC<TableProps> = ({
                           {cell.value}
                         </td>
                       )}
-                      {cell.column.type === 'actions' &&
-                        viewAction !== 'notShow' && (
-                          <td>
-                            <Form.Check
-                              inline
-                              name="id"
-                              value={row.original.id}
-                              type="checkbox"
-                              onChange={onChange ? e => onChange(e) : undefined}
-                            />
-                          </td>
-                        )}
                       {cell.column.type === 'actions_clicks' && (
                         <td>
                           <div className="container-table-icon">

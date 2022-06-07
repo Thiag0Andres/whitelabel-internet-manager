@@ -11,8 +11,6 @@ import { Icon } from '@iconify/react';
 import FilterIcon from '@iconify-icons/bi/filter';
 import SearchIcon from '@iconify-icons/heroicons-outline/search';
 import eyeIcon from '@iconify-icons/bi/eye';
-import upcScan from '@iconify-icons/bi/upc-scan';
-import cashStack from '@iconify-icons/bi/cash-stack';
 import trashIcon from '@iconify-icons/bi/trash';
 import ReceiptIcon from '@iconify-icons/bi/receipt';
 
@@ -21,13 +19,7 @@ import { populateTransactions } from '../../store/ducks/tables/actions';
 import { ApplicationState } from '../../store';
 
 import { BILLS_TO_RECEIVE_HEADERS } from '../../constants/table-headers';
-import {
-  PagePath,
-  Table,
-  FilterModal,
-  ReceiptModal,
-  AcceptModal,
-} from '../../components';
+import { PagePath, Table, FilterModal, AcceptModal } from '../../components';
 
 import api from '../../services/api';
 
@@ -45,9 +37,7 @@ const TableBillsToReceive: React.FC = () => {
   const { user } = useSelector((state: ApplicationState) => state.user);
   const [loading, setLoading] = useState(false);
   const [filterModalShow, setFilterModalShow] = useState(false);
-  const [receiptModalShow, setReceiptModalShow] = useState(false);
   const [acceptModalShow, setAcceptModalShow] = useState(false);
-  const [actionIds, setActionIds] = useState<Array<any>>([]);
   const [query, setQuery] = useState('');
   const [valueInputFilter, setValueInputFilter] = useState('');
   const [id, setId] = useState<number>();
@@ -129,20 +119,7 @@ const TableBillsToReceive: React.FC = () => {
 
   const handleClose = () => {
     setFilterModalShow(false);
-    setReceiptModalShow(false);
     setAcceptModalShow(false);
-  };
-
-  const handleSelectedOption = (e: any) => {
-    const { value } = e.target;
-    // console.log(event.target);
-
-    if (actionIds.includes(value)) {
-      const pos = actionIds.indexOf(value);
-      actionIds.splice(pos, 1);
-    } else {
-      actionIds.push(value);
-    }
   };
 
   return (
@@ -156,6 +133,7 @@ const TableBillsToReceive: React.FC = () => {
                 <Icon icon={SearchIcon} color="#ffffff" />
               </div>
               <Form.Control
+                id="input-search"
                 className="input-search"
                 placeholder="Pesquisar..."
                 value={valueInputFilter}
@@ -164,9 +142,11 @@ const TableBillsToReceive: React.FC = () => {
             </Col>
             <div className="container-header-buttons">
               <Button
+                id="clear-filters"
                 style={{ marginRight: '0.625rem' }}
                 className="primary-button outline-secundary"
                 onClick={() => {
+                  setValueInputFilter('');
                   setQuery('');
                 }}
               >
@@ -176,6 +156,7 @@ const TableBillsToReceive: React.FC = () => {
                 Limpar filtro
               </Button>
               <Button
+                id="button-filter"
                 style={{ width: '6.25rem', marginRight: '0.625rem' }}
                 className="primary-button outline-primary"
                 onClick={() => {
@@ -187,35 +168,13 @@ const TableBillsToReceive: React.FC = () => {
                 </div>
                 Filtrar
               </Button>
-              <Button
-                style={{ marginRight: '0.625rem' }}
-                className="primary-button outline-primary"
-                onClick={() => {
-                  onNavigationClick('/home/bills-to-receive/create');
-                }}
-              >
-                <div className="icon-button">
-                  <Icon icon={upcScan} color="#011A2C" />
-                </div>
-                Gerar boletos
-              </Button>
-              <Button
-                className="primary-button outline-primary"
-                onClick={() => {
-                  onNavigationClick('/home/bills-to-receive/include');
-                }}
-              >
-                <div className="icon-button">
-                  <Icon icon={cashStack} color="#011A2C" />
-                </div>
-                Incluir nova
-              </Button>
             </div>
           </div>
           <div className="card-content">
             <h2 className="subTitle marginBottom">Todos</h2>
             {!loading ? (
               <Table
+                id="bills-list"
                 columns={BILLS_TO_RECEIVE_HEADERS}
                 data={transactions}
                 actions={
@@ -260,7 +219,6 @@ const TableBillsToReceive: React.FC = () => {
                       ]
                 }
                 valueInputFilter={valueInputFilter}
-                onChange={handleSelectedOption}
               />
             ) : (
               <div className="container-spinner">
@@ -272,19 +230,6 @@ const TableBillsToReceive: React.FC = () => {
                 />
               </div>
             )}
-            <div className="container-footer-buttons">
-              <Button
-                className="primary-button"
-                onClick={() => {
-                  setReceiptModalShow(true);
-                }}
-              >
-                <div className="icon-button">
-                  <Icon icon={ReceiptIcon} color="#ffffff" />
-                </div>
-                Gerar NF-es
-              </Button>
-            </div>
           </div>
         </Col>
       </Container>
@@ -293,11 +238,6 @@ const TableBillsToReceive: React.FC = () => {
         type="bills"
         handleClose={handleClose}
         setQuery={setQuery}
-      />
-      <ReceiptModal
-        value={receiptModalShow}
-        handleClose={handleClose}
-        actionIds={actionIds}
       />
       <AcceptModal
         value={acceptModalShow}

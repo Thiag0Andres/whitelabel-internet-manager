@@ -111,6 +111,7 @@ const TableAuditLog: React.FC = () => {
                 <Icon icon={SearchIcon} color="#ffffff" />
               </div>
               <Form.Control
+                id="input-search"
                 className="input-search"
                 placeholder="Pesquisar..."
                 value={valueInputFilter}
@@ -119,6 +120,7 @@ const TableAuditLog: React.FC = () => {
             </Col>
             <div className="container-body-buttons">
               <Button
+                id="clear-filters"
                 className="primary-button outline-secundary"
                 onClick={() => {
                   setValueInputFilter('');
@@ -135,6 +137,7 @@ const TableAuditLog: React.FC = () => {
             <h2 className="subTitle marginBottom">Todos</h2>
             {!loading ? (
               <Table
+                id="logs-list"
                 columns={AUDIT_LOG_HEADERS}
                 data={auditLog}
                 actions={[

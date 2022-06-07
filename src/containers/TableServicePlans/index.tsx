@@ -137,6 +137,7 @@ const TableServicePlans: React.FC = () => {
                 <Icon icon={SearchIcon} color="#ffffff" />
               </div>
               <Form.Control
+                id="input-search"
                 className="input-search"
                 placeholder="Pesquisar..."
                 value={valueInputFilter}
@@ -145,6 +146,7 @@ const TableServicePlans: React.FC = () => {
             </Col>
             <div className="container-body-buttons">
               <Button
+                id="clear-filters"
                 style={{ marginRight: '0.625rem' }}
                 className="primary-button outline-secundary"
                 onClick={() => {
@@ -174,6 +176,7 @@ const TableServicePlans: React.FC = () => {
             <h2 className="subTitle marginBottom">Todos</h2>
             {!loading ? (
               <Table
+                id="plans-list"
                 columns={SERVICE_PLANS_HEADERS}
                 data={servicePlans}
                 actions={[

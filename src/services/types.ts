@@ -78,13 +78,6 @@ export interface BillsToReceive {
   };
 }
 
-export interface Imultiplebillet {
-  userId: string;
-  type: string;
-  dueDate: string;
-  installments: string;
-}
-
 export interface AuditLog {
   id: number;
   activity: string;
@@ -101,13 +94,6 @@ export interface LoginForm {
 
 export interface ForgotForm {
   email: string;
-}
-
-export interface RedefineForm {
-  token: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
 }
 
 export interface InfoCEP {
@@ -160,37 +146,6 @@ export interface RegisterPerson {
   };
   dueDate: string;
   tolerance: string;
-}
-
-export interface RegisterProvider {
-  planId: string;
-  name: string;
-  gender: string;
-  fantasyName: string;
-  socialReason: string;
-  stateRegistration: string;
-  userType: string;
-  phone3: string;
-  phone: string;
-  phone2: string;
-  email: string;
-  establishmentEmail: string;
-  cpf: string;
-  cnpj: string;
-  rg: string;
-  birthDate: string;
-  emittingOrgan: string;
-  url: string;
-  address: {
-    zipcode: string;
-    state: string;
-    city: string;
-    street: string;
-    neighborhood: string;
-    number: string;
-    complement: string;
-    ibgeCode: string;
-  };
 }
 
 export interface User {
@@ -304,33 +259,6 @@ export interface ServicePlansForm {
   ibptFederalTax?: string;
 }
 
-export interface EmitBilletForm {
-  isIndividual: boolean;
-  institution: string;
-  userId: string;
-  expireDate: string;
-  amount: string;
-  message: string;
-}
-
-export interface EmitReceiptForm {
-  transactionIds: [string];
-  providerId: string;
-  emissionDate: string;
-  message: string;
-}
-
-export interface IUploadFile {
-  file: any;
-  name: string;
-  readableSize: string;
-  preview: string;
-  progress: number;
-  uploaded: boolean;
-  error: boolean;
-  url: string;
-}
-
 export interface IReports {
   id: string;
   revenues: string;
@@ -358,32 +286,12 @@ export type ValidationForgotPasswordSchemaType = {
   [key in keyof Required<ForgotForm>]: yup.SchemaOf<unknown>;
 };
 
-export type ValidationRedefinePasswordSchemaType = {
-  [key in keyof Required<RedefineForm>]: yup.SchemaOf<unknown>;
-};
-
-export type ValidationRegisterProviderSchemaType = {
-  [key in keyof Required<RegisterProvider>]: yup.SchemaOf<unknown>;
-};
-
 export type ValidationRegisterPersonSchemaType = {
   [key in keyof Required<RegisterPerson>]: yup.SchemaOf<unknown>;
 };
 
 export type ValidationServicePlansFormSchemaType = {
   [key in keyof Required<ServicePlansForm>]: yup.SchemaOf<unknown>;
-};
-
-export type ValidationEmitBilletSchemaType = {
-  [key in keyof Required<EmitBilletForm>]: yup.SchemaOf<unknown>;
-};
-
-export type ValidationMultiplebilletSchemaType = {
-  [key in keyof Required<Imultiplebillet>]: yup.SchemaOf<unknown>;
-};
-
-export type ValidationEmitReceiptFormSchemaType = {
-  [key in keyof Required<EmitReceiptForm>]: yup.SchemaOf<unknown>;
 };
 
 export interface ListItemMenu {

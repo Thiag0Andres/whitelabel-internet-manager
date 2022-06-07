@@ -162,6 +162,7 @@ const FilterModal: React.FC<Props> = ({
 
   return (
     <Modal
+      id="modal-filter"
       className="modal-filter"
       show={value}
       onHide={() => handleClose()}
@@ -182,6 +183,7 @@ const FilterModal: React.FC<Props> = ({
               <Form.Group>
                 <Form.Label>Mês desejado</Form.Label>
                 <Form.Control
+                  id="select-month"
                   as="select"
                   name="month"
                   onChange={e => handleSelectedOptionName(e)}
@@ -201,6 +203,7 @@ const FilterModal: React.FC<Props> = ({
               <Form.Group>
                 <Form.Label>Ano desejado</Form.Label>
                 <Form.Control
+                  id="select-year"
                   as="select"
                   name="year"
                   onChange={e => handleSelectedOptionName(e)}
@@ -239,6 +242,7 @@ const FilterModal: React.FC<Props> = ({
 
               {type === 'user' ? (
                 <Form.Check
+                  id="check1"
                   inline
                   label="Ativo"
                   name="status[]"
@@ -248,6 +252,7 @@ const FilterModal: React.FC<Props> = ({
                 />
               ) : (
                 <Form.Check
+                  id="check1"
                   inline
                   label="Pago"
                   name="status[]"
@@ -258,6 +263,7 @@ const FilterModal: React.FC<Props> = ({
               )}
 
               <Form.Check
+                id="check2"
                 inline
                 label="Pessoa física"
                 name="physicalPerson"
@@ -268,6 +274,7 @@ const FilterModal: React.FC<Props> = ({
 
               {type === 'user' ? (
                 <Form.Check
+                  id="check3"
                   inline
                   label="Inadimplente"
                   name="status[]"
@@ -277,6 +284,7 @@ const FilterModal: React.FC<Props> = ({
                 />
               ) : (
                 <Form.Check
+                  id="check3"
                   inline
                   label="Pendente"
                   name="status[]"
@@ -287,6 +295,7 @@ const FilterModal: React.FC<Props> = ({
               )}
 
               <Form.Check
+                id="check4"
                 inline
                 label="Pessoa jurídica"
                 name="juridicalPerson"
@@ -297,6 +306,7 @@ const FilterModal: React.FC<Props> = ({
 
               {type === 'user' && (
                 <Form.Check
+                  id="check5"
                   inline
                   label="Bloqueado"
                   name="status[]"
@@ -383,6 +393,7 @@ const FilterModal: React.FC<Props> = ({
       <Modal.Footer>
         <div className="container-body-buttons-modal">
           <Button
+            id="button-close-filter"
             style={{ marginRight: '0.625rem' }}
             className="primary-button outline-primary"
             onClick={() => handleClose()}
@@ -392,7 +403,11 @@ const FilterModal: React.FC<Props> = ({
             </div>
             Cancelar
           </Button>
-          <Button className="primary-button" onClick={handleSubmit}>
+          <Button
+            id="button-filter-request"
+            className="primary-button"
+            onClick={handleSubmit}
+          >
             <div className="icon-button">
               <Icon icon={FilterIcon} color="#ffffff" />
             </div>

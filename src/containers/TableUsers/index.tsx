@@ -189,6 +189,7 @@ const TableUsers: React.FC = () => {
                 <Icon icon={SearchIcon} color="#ffffff" />
               </div>
               <Form.Control
+                id="input-search"
                 className="input-search"
                 placeholder="Pesquisar..."
                 value={valueInputFilter}
@@ -197,6 +198,7 @@ const TableUsers: React.FC = () => {
             </Col>
             <div className="container-body-buttons">
               <Button
+                id="button-filter"
                 style={{ width: '6.25rem', marginRight: '0.625rem' }}
                 className="primary-button outline-primary"
                 onClick={() => {
@@ -209,6 +211,7 @@ const TableUsers: React.FC = () => {
                 Filtrar
               </Button>
               <Button
+                id="clear-filters"
                 className="primary-button outline-secundary"
                 onClick={() => {
                   setValueInputFilter('');
@@ -231,6 +234,7 @@ const TableUsers: React.FC = () => {
             {!loading ? (
               <div>
                 <Table
+                  id="users-list"
                   columns={CLIENTS_HEADERS}
                   data={clients}
                   actions={

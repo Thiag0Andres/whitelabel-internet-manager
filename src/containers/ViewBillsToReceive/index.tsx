@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { FormEvent, useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Row, Col, Form, Spinner } from 'react-bootstrap';
@@ -12,9 +12,8 @@ import Mask from 'react-input-mask';
 // Icons
 import { Icon } from '@iconify/react';
 import arrowLeft from '@iconify-icons/bi/arrow-left';
-import check2 from '@iconify-icons/bi/check2';
 
-import { AcceptModal, ContainerPage, PagePath } from '../../components';
+import { ContainerPage, PagePath } from '../../components';
 
 import { BillsToReceive, User } from '../../services/types';
 
@@ -31,7 +30,6 @@ const ViewBillsToReceive: React.FC = () => {
   const [infoBills, setInfoBills] = useState<BillsToReceive>();
   const [user, setUser] = useState<User>();
   const [loading, setLoading] = useState(false);
-  const [acceptModalShow, setAcceptModalShow] = useState(false);
 
   const id = window.location.pathname.substring(3).split('/')[3];
 
@@ -101,51 +99,6 @@ const ViewBillsToReceive: React.FC = () => {
     [history],
   );
 
-  const payBillet = (event: FormEvent) => {
-    event.preventDefault();
-    // console.log('token', token);
-    const body = infoBills?.isIndividual
-      ? { isPaid: true }
-      : {
-          billet: {
-            ...infoBills?.billet,
-            billetStatus: infoBills?.billet.billetNumber
-              ? 'paid'
-              : 'up_to_date',
-          },
-        };
-    api
-      .put(`/transactions/${id}`, body, {
-        headers: { Authorization: token },
-      })
-      .then(() => {
-        loadBillsToReceive();
-        if (infoBills?.isIndividual) {
-          toast.success('Transação paga');
-        } else {
-          toast.success('Boleto pago');
-        }
-
-        setAcceptModalShow(false);
-      })
-      .catch(error => {
-        // console.log(error.response);
-        setAcceptModalShow(false);
-        if (error.response.data.error.error_description) {
-          toast.error(`${error.response.data.error.error_description}`);
-        } else {
-          toast.error(`${error.response.data.error}`);
-        }
-        if (error.response.data.status === 401) {
-          history.push('/login');
-        }
-      });
-  };
-
-  const handleClose = () => {
-    setAcceptModalShow(false);
-  };
-
   return (
     <>
       <ContainerPage>
@@ -212,23 +165,6 @@ const ViewBillsToReceive: React.FC = () => {
                     </Form.Group>
                   </Col>
                 </Row>
-                {infoBills?.isPaid !== true &&
-                  infoBills?.billet.billetStatus !== 'paid' && (
-                    <Row noGutters>
-                      <Col lg="6">
-                        <Form.Label>Pagar boleto manualmente</Form.Label>
-                        <Button
-                          className="primary-button"
-                          onClick={() => setAcceptModalShow(true)}
-                        >
-                          <div className="icon-button">
-                            <Icon icon={check2} color="#ffffff" />
-                          </div>
-                          Pagar
-                        </Button>
-                      </Col>
-                    </Row>
-                  )}
                 {infoBills?.billet.billetUrl && (
                   <>
                     <h2 className="subTitle marginTop marginBottom">
@@ -256,11 +192,6 @@ const ViewBillsToReceive: React.FC = () => {
           </div>
         </Col>
       </ContainerPage>
-      <AcceptModal
-        value={acceptModalShow}
-        handleClose={handleClose}
-        updateUser={payBillet}
-      />
     </>
   );
 };

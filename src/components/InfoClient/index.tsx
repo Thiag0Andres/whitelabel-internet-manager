@@ -37,7 +37,7 @@ import { renderStatus } from '../Table';
 import { BILLS_TO_RECEIVE_HEADERS } from '../../constants/table-headers';
 
 import { ServicePlans, User } from '../../services/types';
-import { Table, AcceptModal, ReceiptModal } from '..';
+import { Table, AcceptModal } from '..';
 
 import api from '../../services/api';
 
@@ -65,8 +65,6 @@ const InfoClient: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(false);
   const [acceptModalShow, setAcceptModalShow] = useState(false);
-  const [receiptModalShow, setReceiptModalShow] = useState(false);
-  const [actionIds, setActionIds] = useState<Array<any>>([]);
 
   const id = window.location.pathname.substring(3).split('/')[3];
 
@@ -228,19 +226,6 @@ const InfoClient: React.FC = () => {
 
   const handleClose = () => {
     setAcceptModalShow(false);
-    setReceiptModalShow(false);
-  };
-
-  const handleSelectedOption = (e: any) => {
-    const { value } = e.target;
-    // console.log(event.target);
-
-    if (actionIds.includes(value)) {
-      const pos = actionIds.indexOf(value);
-      actionIds.splice(pos, 1);
-    } else {
-      actionIds.push(value);
-    }
   };
 
   return (
@@ -276,19 +261,6 @@ const InfoClient: React.FC = () => {
                 </div>
                 Editar cliente
               </Button>
-              {option4 && (
-                <Button
-                  className="primary-button outline-primary"
-                  onClick={() => {
-                    setReceiptModalShow(true);
-                  }}
-                >
-                  <div className="icon-button">
-                    <Icon icon={receipt} color="#011A2C" />
-                  </div>
-                  Gerar NF-es
-                </Button>
-              )}
             </div>
           </div>
           <div className="card-content">
@@ -1137,12 +1109,12 @@ const InfoClient: React.FC = () => {
                 )}
                 {option4 && (
                   <Table
+                    id="bills-list"
                     columns={BILLS_TO_RECEIVE_HEADERS}
                     data={transactions}
                     onViewClick={(id: number) =>
                       onNavigationClick(`/home/bills-to-receive/view/${id}`)
                     }
-                    onChange={handleSelectedOption}
                   />
                 )}
               </Form>
@@ -1159,11 +1131,6 @@ const InfoClient: React.FC = () => {
           </div>
         </Col>
       </Container>
-      <ReceiptModal
-        value={receiptModalShow}
-        handleClose={handleClose}
-        actionIds={actionIds}
-      />
       <AcceptModal
         value={acceptModalShow}
         handleClose={handleClose}

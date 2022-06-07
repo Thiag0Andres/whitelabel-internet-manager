@@ -17,7 +17,6 @@ import barChart from '@iconify-icons/bi/bar-chart';
 import personIcon from '@iconify-icons/bi/person';
 import personPlus from '@iconify-icons/bi/person-plus';
 import receiptIcon from '@iconify-icons/bi/receipt';
-import cogLine from '@iconify-icons/clarity/cog-line';
 import boxIcon from '@iconify-icons/bi/box';
 import cashStack from '@iconify-icons/bi/cash-stack';
 import fileEarmarkText from '@iconify-icons/bi/file-earmark-text';
@@ -121,13 +120,6 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
 
   const isMobile = useMobile();
 
-  // console.log('open', openDrawer);
-  // console.log('openM', openMobileDrawer);
-
-  const page = window.location.pathname;
-
-  // console.log(page);
-
   useEffect(() => {
     setOpen(false);
     setMobileOpen(false);
@@ -154,34 +146,15 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
     [history],
   );
 
-  const onNavigationClick = useCallback(
-    (path: string) => {
-      history.push(path);
-    },
-    [history],
-  );
-
   const drawer = (
     <>
       <div className={classes.toolbar}>
         {!openDrawer ? (
-          <button
-            className="button-logo"
-            type="button"
-            onClick={() => {
-              onNavigationClick(`/home/perfil/view/${user.providerId}`);
-            }}
-          >
+          <button className="button-logo" type="button">
             <p className="logo">Logo</p>
           </button>
         ) : (
-          <button
-            className="perfil-provider"
-            type="button"
-            onClick={() => {
-              onNavigationClick(`/home/perfil/view/${user.providerId}`);
-            }}
-          >
+          <button className="perfil-provider" type="button">
             <p className="logo-icon">L</p>
           </button>
         )}
@@ -189,7 +162,7 @@ export const Drawer: React.FC<Props> = ({ openDrawer, openMobileDrawer }) => {
 
       {user?.userType === 'provider' && (
         <List>
-          {LIST_MENU_PROVIDER.map((item, index) => (
+          {LIST_MENU_PROVIDER.map(item => (
             <ListItem
               id={item.name.toLocaleLowerCase().replace(/ /g, '-')}
               button
