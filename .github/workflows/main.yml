@@ -13,4 +13,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 'UI Tests - Chrome'
-        run: cypress open --config-file=cypress.config.ts
+        uses: cypress-io/github-action@v2
+        with:
+          install-command: yarn install
+          browser: chrome
+          group: 'UI - Chrome'
+          spec: cypress/integration/*
