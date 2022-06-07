@@ -9,3 +9,7 @@ build
 /cypress/screenshots
 /cypress/videos
 /.nyc_output
+
+public/*
+build/static/css/*.map
+build/static/js/*.map
