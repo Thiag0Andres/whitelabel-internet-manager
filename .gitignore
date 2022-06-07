@@ -3,3 +3,9 @@ package-lock.json
 build
 .env
 # src/environment
+
+# testing
+/coverage
+/cypress/screenshots
+/cypress/videos
+/.nyc_output

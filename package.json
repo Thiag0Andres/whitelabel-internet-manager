@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/instrument-cra": "^1.4.0",
     "@iconify-icons/bi": "^1.1.5",
     "@iconify-icons/clarity": "^1.1.1",
     "@iconify-icons/heroicons-outline": "^1.1.2",
@@ -50,7 +51,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
@@ -73,6 +74,7 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@testing-library/dom": "^8.13.0",
     "@types/jest": "^26.0.23",
     "@types/js-cookie": "^2.2.6",
