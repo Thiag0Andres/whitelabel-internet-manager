@@ -10,6 +10,7 @@ import './common.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
+console.log('change');
 ReactDOM.render(
   <Provider store={store}>
     <App />
