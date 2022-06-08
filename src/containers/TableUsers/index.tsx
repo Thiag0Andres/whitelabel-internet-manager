@@ -14,10 +14,7 @@ import eyeIcon from '@iconify-icons/bi/eye';
 import trashIcon from '@iconify-icons/bi/trash';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  populateProviders,
-  populateClients,
-} from '../../store/ducks/tables/actions';
+import { populateClients } from '../../store/ducks/tables/actions';
 import { ApplicationState } from '../../store';
 
 import { PagePath, FilterModal, Table, AcceptModal } from '../../components';
@@ -35,39 +32,13 @@ const TableUsers: React.FC = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state: ApplicationState) => state.user);
   const token = localStorage.getItem(String(REACT_APP_LOCAL_STORAGE_USER_AUTH));
-  const { clients, providers } = useSelector(
-    (state: ApplicationState) => state.tables,
-  );
+  const { clients } = useSelector((state: ApplicationState) => state.tables);
   const [valueInputFilter, setValueInputFilter] = useState('');
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [ModalChoice, setModalChoice] = useState(false);
   const [acceptModalShow, setAcceptModalShow] = useState(false);
   const [id, setId] = useState<number>();
-
-  const loadProviders = useCallback(() => {
-    setLoading(true);
-
-    api
-      .get(`providers?limit=${1000}`, { headers: { Authorization: token } })
-      .then(response => {
-        // console.log(response.data.data);
-        dispatch(populateProviders(response.data.data));
-        setLoading(false);
-      })
-      .catch(error => {
-        // console.log(error.response);
-        if (error.response.data.error.error_description) {
-          toast.error(`${error.response.data.error.error_description}`);
-        } else {
-          toast.error(`${error.response.data.error}`);
-        }
-        if (error.response.data.status === 401) {
-          history.push('/login');
-        }
-        setLoading(false);
-      });
-  }, [dispatch, token]);
 
   const loadClients = useCallback(() => {
     // console.log('token', token);
@@ -102,34 +73,20 @@ const TableUsers: React.FC = () => {
   }, [dispatch, token, query]);
 
   useEffect(() => {
-    if (user && user.userType === 'globaladmin') {
-      loadProviders();
-    } else {
-      loadClients();
-    }
-  }, [loadProviders, loadClients]);
+    loadClients();
+  }, [loadClients]);
 
   const deleteUser = (event: FormEvent) => {
     event.preventDefault();
     // console.log('token', token);
 
     api
-      .delete(
-        `/${
-          user && user.userType === 'globaladmin' ? 'providers' : 'users'
-        }/${id}`,
-        {
-          headers: { Authorization: token },
-        },
-      )
+      .delete(`/users/${id}`, {
+        headers: { Authorization: token },
+      })
       .then(() => {
-        if (user && user.userType === 'globaladmin') {
-          toast.success('Provedor deletado');
-          loadProviders();
-        } else {
-          toast.success('Cliente bloqueado');
-          loadClients();
-        }
+        toast.success('Cliente bloqueado');
+        loadClients();
 
         setAcceptModalShow(false);
       })
@@ -176,13 +133,7 @@ const TableUsers: React.FC = () => {
           xs="12"
           sm="12"
         >
-          <PagePath
-            title={
-              user && user.userType === 'globaladmin'
-                ? 'Provedores'
-                : 'Clientes'
-            }
-          />
+          <PagePath title="Clientes" />
           <div className="card-header">
             <Col className="input-container-icon" lg="4">
               <div className="icon-button-search">
@@ -226,11 +177,7 @@ const TableUsers: React.FC = () => {
             </div>
           </div>
           <div className="card-content">
-            <h2 className="subTitle marginBottom">
-              {user && user.userType === 'globaladmin'
-                ? 'Provedores'
-                : 'Clientes'}
-            </h2>
+            <h2 className="subTitle marginBottom">Clientes</h2>
             {!loading ? (
               <div>
                 <Table
@@ -246,11 +193,7 @@ const TableUsers: React.FC = () => {
                               type: eyeIcon,
                             },
                             onClick: (value: any) => {
-                              onNavigationClick(
-                                user && user.userType === 'globaladmin'
-                                  ? `/home/providers/view/${value}`
-                                  : `/home/clients/view/${value}`,
-                              );
+                              onNavigationClick(`/home/clients/view/${value}`);
                             },
                           },
 
@@ -272,11 +215,7 @@ const TableUsers: React.FC = () => {
                               type: eyeIcon,
                             },
                             onClick: (value: any) => {
-                              onNavigationClick(
-                                user && user.userType === 'globaladmin'
-                                  ? `/home/providers/view/${value}`
-                                  : `/home/clients/view/${value}`,
-                              );
+                              onNavigationClick(`/home/clients/view/${value}`);
                             },
                           },
                         ]
